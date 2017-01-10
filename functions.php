@@ -43,16 +43,10 @@ function trouble_add_page_fields() {
 
 	rbm_do_field_select( 'trouble_yes', 'Yes', false, array(
 		'options'     => $post_options,
-		'input_class' => 'rbm-select2 widefat',
-		'opt_groups'  => true,
-		'multiple'    => true,
-		'multi_field' => true,
+//		'default' => 'none',
 	) );
 	rbm_do_field_select( 'trouble_no', 'No', false, array(
 		'options'     => $post_options,
-		'input_class' => 'rbm-select2 widefat',
-		'opt_groups'  => true,
-		'multiple'    => true,
-		'multi_field' => true,
+//		'default' => 'none',
 	) );
 }
