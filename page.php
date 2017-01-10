@@ -1,15 +1,19 @@
 <?php get_header(); ?>
-<header>
-	<?php the_title( '<h1>', '</h1>' ); ?>
-</header><!-- .entry-header -->
+	<?php while ( have_posts() ) : the_post(); ?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<header>
+				<?php the_title( '<h1>', '</h1>' ); ?>
+			</header><!-- .entry-header -->
 
-<div class="entry-content">
-	<?php the_content(); ?>
-	<section class="left">
-		<?php rbm_field( 'trouble_yes' ); ?>
-	</section>
-	<section class="right">
-		<?php rbm_field( 'trouble_no' ); ?>
-	</section>
-</div><!-- .entry-content -->
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div><!-- .entry-content -->
+			<section class="left">
+				<a href="<?php echo get_permalink( rbm_get_field( 'trouble_yes' ) ); ?>">Yes</a>
+			</section>
+			<section class="right">
+				<a href="<?php echo get_permalink( rbm_get_field( 'trouble_no' ) ); ?>">No</a>
+			</section>
+		</article>
+	<?php endwhile; // end of the loop. ?>
 <?php get_footer(); ?>

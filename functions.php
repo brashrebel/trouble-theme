@@ -37,16 +37,14 @@ function trouble_add_page_fields() {
 	$post_options = array();
 	if ( ! empty( $posts ) ) {
 		foreach ( $posts as $post ) {
-			$post_options['Pages'][ $post->ID ] = $post->post_title;
+			$post_options[ $post->ID ] = $post->post_title;
 		}
 	}
 
 	rbm_do_field_select( 'trouble_yes', 'Yes', false, array(
 		'options'     => $post_options,
-//		'default' => 'none',
 	) );
 	rbm_do_field_select( 'trouble_no', 'No', false, array(
 		'options'     => $post_options,
-//		'default' => 'none',
 	) );
 }
