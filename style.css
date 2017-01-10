@@ -1,0 +1,15 @@
+/*!
+Theme Name: Trouble Theme
+Theme URI: https://github.com/brashrebel/trouble-theme
+Author: Kyle Maurer
+Author URI: http://realbigmarketing.com/staff/kyle
+Description: A custom WP theme for the troubleshooting website.
+Version: 0.1
+License: GNU General Public License v3 or later
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: trouble
+*/
+
+body {
+    text-align: center;
+}
