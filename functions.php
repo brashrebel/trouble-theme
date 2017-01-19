@@ -43,8 +43,34 @@ function trouble_add_page_fields() {
 
 	rbm_do_field_select( 'trouble_yes', 'Yes', false, array(
 		'options'     => $post_options,
+		'option_none' => '-',
+		'option_none_value' => null,
 	) );
 	rbm_do_field_select( 'trouble_no', 'No', false, array(
 		'options'     => $post_options,
+		'option_none' => '-',
+		'option_none_value' => null,
+	) );
+	rbm_do_field_checkbox( 'trouble_solved', false, false, array(
+		'check_label' => 'Solved',
 	) );
 }
+
+/**
+ * Add a column to the WP_List_Table for pages
+ * @param $columns
+ * @return mixed
+ */
+function trouble_new_page_column( $columns ) {
+	$columns["yn"] = "Yes / No";
+	return $columns;
+}
+add_filter('manage_edit-page_columns', 'trouble_new_page_column');
+
+function trouble_populate_column( $colname, $cptid ) {
+	if ( $colname == 'yn')
+		echo get_the_title( rbm_get_field( 'trouble_yes' ) );
+		echo '<br/>';
+		echo get_the_title( rbm_get_field( 'trouble_no' ) );
+}
+add_action('manage_page_posts_custom_column', 'trouble_populate_column', 10, 2);
